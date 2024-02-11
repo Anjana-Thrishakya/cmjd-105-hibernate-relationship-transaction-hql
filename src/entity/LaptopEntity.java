@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -32,5 +33,8 @@ public class LaptopEntity {
 
     @Column(name = "model", nullable = false, length = 50)
     private String model;
+
+    @OneToOne(mappedBy = "laptopEntity", targetEntity = StudentEntity.class)
+    private StudentEntity studentEntity;
 
 }
