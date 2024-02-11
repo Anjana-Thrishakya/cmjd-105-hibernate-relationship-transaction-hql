@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 
 import dto.StudentDto;
@@ -18,6 +19,16 @@ public class App {
 
         List<BatchEntity> batchEntities = batchRepository.getAll(SessionFactoryConfiguration.getInstance().getSession());
         batchEntities.forEach(e-> {
+            System.out.println(e);
+        });
+
+        List<Object[]> batchEntiesByObjectArray = batchRepository.getAllBySQL(SessionFactoryConfiguration.getInstance().getSession());
+        batchEntiesByObjectArray.forEach(e-> {
+           System.out.println( Arrays.toString(e)); 
+        });
+
+        List<String> nameList = batchRepository.getAllNames(SessionFactoryConfiguration.getInstance().getSession());
+        nameList.forEach(e-> {
             System.out.println(e);
         });
     }

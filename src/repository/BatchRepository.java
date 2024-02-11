@@ -21,4 +21,18 @@ public class BatchRepository {
         return batchEntities;
     }
 
+    public List<Object[]> getAllBySQL(Session session){
+        String sql = "SELECT * FROM batch";
+        Query query = session.createSQLQuery(sql);
+        List<Object[]> batchEntities = query.list();
+        return batchEntities;
+    }
+
+    public List<String> getAllNames(Session session){
+        String hql = "SELECT B.batchName FROM BatchEntity B";
+        Query query = session.createQuery(hql);
+        List<String> nameList = query.list();
+        return nameList;
+    }
+
 }
